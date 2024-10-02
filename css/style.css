@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+.wrapper {
+    max-width: 450px;
+    margin: 0 auto 15px auto;
+    padding: 20px 4%;
+}
+
+/* -------------------------------
+header
+---------------------------------*/
+#header {
+    background-color: #f0f8ff;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    font-family: "Nunito", sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none; /* 下線をなくす */
+    color: #000; /* リンクの通常時の文字色 */
+}
+
+/* -------------------------------
+main
+---------------------------------*/
+main {
+    background-color: #bbd3e9;
+    font-family: "Nunito", sans-serif;
+    padding-top: 100px;
+}
+
+div {
+    /* background-color: #f0f8ff; */
+    /* border-radius: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); */
+}
+
+#greeting {
+    align-items: center;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+#introduction {
+}
+
+#media {
+}
