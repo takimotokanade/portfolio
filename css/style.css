@@ -1,22 +1,64 @@
 @charset "UTF-8";
-
+/* -------------------------------
+共通
+---------------------------------*/
 html, body {
     margin: 0;
     padding: 0;
 }
-
-li {
-    list-style: none;
-}
-
 h2 {
     text-decoration: underline;
+    text-underline-offset: 5px;
+}
+ul {
+    margin-left: -30px;
+}
+li {
+    list-style: none;
+    /* margin-bottom: 10px; */
+}
+.wrapper {
+    max-width: 500px;
+    margin: 0 auto 1px auto;
+    padding: 20px 4%;
+}
+.wrapper img {
+    width: 100%;  /* 親要素（.wrapper）の幅に合わせる */
+    height: auto; /* アスペクト比を保持 */
+    display: block; /* 余計な余白をなくす */
+    border-radius: 10px;
 }
 
-.wrapper {
-    max-width: 450px;
-    margin: 0 auto 15px auto;
-    padding: 20px 4%;
+/* -------------------------------
+nuv
+---------------------------------*/
+nav ul {
+    display: flex;
+}
+
+nav a {
+    text-decoration: none; /* 下線をなくす */
+    color: #000; /* リンクの通常時の文字色 */
+}
+
+nav li {
+    margin-left: 20px;
+    position: relative; /* 下線を絶対位置で配置するため */
+}
+
+nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000; /* 下線の色 */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+nav a:hover::after {
+    width: 100%; 
 }
 
 /* -------------------------------
@@ -34,32 +76,13 @@ header
     z-index: 1000;
 }
 
-nav ul {
-    display: flex;
-}
-
-nav li {
-    margin-right: 20px;
-}
-
-nav a {
-    text-decoration: none; /* 下線をなくす */
-    color: #000; /* リンクの通常時の文字色 */
-}
-
 /* -------------------------------
 main
 ---------------------------------*/
 main {
-    background-color: #bbd3e9;
+    background-color: #d6e9fa;
     font-family: "Nunito", sans-serif;
     padding-top: 100px;
-}
-
-div {
-    /* background-color: #f0f8ff; */
-    /* border-radius: 10px;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); */
 }
 
 #greeting {
@@ -69,8 +92,23 @@ div {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
-#introduction {
+/* -------------------------------
+work
+---------------------------------*/
+#Deliverables {
+    /* margin-bottom: 50px; */
 }
 
-#media {
+#Deliverables ul li {
+    margin-bottom: 18px;
+}
+
+#stack {
+    color: #f0f8ff;
+    background-color: #1773c5;
+    padding: 3px;
+    margin-right: 5px;
+    /* margin-bottom: 30px; */
+    border-radius: 10px;
+
 }
