@@ -1,31 +1,46 @@
 @charset "UTF-8";
+
 /* -------------------------------
 共通
 ---------------------------------*/
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
+
 h2 {
     text-decoration: underline;
     text-underline-offset: 5px;
+    font-family: "Fredoka", sans-serif;
 }
+
+h1 {
+    font-family: "Fredoka", sans-serif;
+}
+
 ul {
     margin-left: -30px;
 }
+
 li {
     list-style: none;
     /* margin-bottom: 10px; */
 }
+
 .wrapper {
     max-width: 500px;
     margin: 0 auto 1px auto;
     padding: 20px 4%;
 }
+
 .wrapper img {
-    width: 100%;  /* 親要素（.wrapper）の幅に合わせる */
-    height: auto; /* アスペクト比を保持 */
-    display: block; /* 余計な余白をなくす */
+    width: 100%;
+    /* 親要素（.wrapper）の幅に合わせる */
+    height: auto;
+    /* アスペクト比を保持 */
+    display: block;
+    /* 余計な余白をなくす */
     border-radius: 10px;
 }
 
@@ -37,13 +52,21 @@ nav ul {
 }
 
 nav a {
-    text-decoration: none; /* 下線をなくす */
-    color: #000; /* リンクの通常時の文字色 */
+    text-decoration: none;
+    /* 下線をなくす */
+    color: #fff;
+    /* リンクの通常時の文字色 */
 }
 
 nav li {
     margin-left: 20px;
-    position: relative; /* 下線を絶対位置で配置するため */
+    position: relative;
+    /* 下線を絶対位置で配置するため */
+}
+
+nav a {
+    position: relative;
+    /* ::afterを絶対配置するため */
 }
 
 nav a::after {
@@ -51,21 +74,26 @@ nav a::after {
     display: block;
     width: 0;
     height: 2px;
-    background-color: #1773c5; /* 下線の色 */
+    background-color: #fff;
+    /* 下線の色 */
     position: absolute;
     left: 0;
     bottom: 0;
+    transition: width 0.3s ease;
+    /* アニメーション追加 */
 }
 
 nav a:hover::after {
-    width: 100%; 
+    width: 100%;
 }
+
 
 /* -------------------------------
 header
 ---------------------------------*/
 #header {
-    background-color: #f0f8ff;
+    background-color: #1773c5;
+    color: #fff;
     display: flex;
     align-items: center;
     padding: 0 50px;
@@ -80,16 +108,17 @@ header
 main
 ---------------------------------*/
 main {
-    background-color: #d6e9fa;
+    background-color: #fff;
     font-family: "Nunito", sans-serif;
     padding-top: 100px;
 }
 
 #greeting {
     align-items: center;
-    background-color: #f0f8ff;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid black;
 }
 
 /* -------------------------------
@@ -111,4 +140,67 @@ work
     /* margin-bottom: 30px; */
     border-radius: 10px;
 
+}
+
+/* -------------------------------
+social media
+---------------------------------*/
+/* リスト全体 */
+#media ul {
+    list-style: none;
+    margin: 0;           /* デフォルトのマージンをリセット */
+    padding: 0;          /* パディングをリセット */
+    display: flex;
+    justify-content: flex-start; /* 左詰め */
+    gap: 20px;           /* ボタン間の間隔 */
+}
+
+#media ul li a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+/* ホバー時 */
+#media ul li a:hover {
+    background-color: #0073e6;
+    /* 背景色変化 */
+    color: #fff;
+    /* 文字色白に */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 初期状態 */
+.wrapper {
+    opacity: 0;
+    transform: translateY(-50px);
+    /* 上にずらした状態 */
+    animation: dropFade 1s forwards;
+}
+
+/* アニメーション */
+@keyframes dropFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 各 div の表示タイミングをずらす */
+#greeting {
+    animation-delay: 0.1s;
+}
+
+#introduction {
+    animation-delay: 0.2s;
+}
+
+#media {
+    animation-delay: 0.3s;
 }
