@@ -45,28 +45,56 @@ li {
 }
 
 /* -------------------------------
+hamburger
+---------------------------------*/
+.hamburger {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.hamburger span[aria-hidden="true"] {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 999px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+}
+
+/* -------------------------------
 nuv
 ---------------------------------*/
 nav ul {
     display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
-    text-decoration: none;
-    /* 下線をなくす */
+    text-decoration: none; /* 下線をなくす */
     color: #fff;
-    /* リンクの通常時の文字色 */
+    position: relative;
 }
 
 nav li {
     margin-left: 20px;
-    position: relative;
-    /* 下線を絶対位置で配置するため */
-}
-
-nav a {
-    position: relative;
-    /* ::afterを絶対配置するため */
+    position: relative; /* 下線を絶対位置で配置するため */
 }
 
 nav a::after {
@@ -74,13 +102,11 @@ nav a::after {
     display: block;
     width: 0;
     height: 2px;
-    background-color: #fff;
-    /* 下線の色 */
+    background-color: #fff; /* 下線の色 */
     position: absolute;
     left: 0;
     bottom: 0;
-    transition: width 0.3s ease;
-    /* アニメーション追加 */
+    transition: width 0.3s ease; /* アニメーション追加 */
 }
 
 nav a:hover::after {
@@ -96,12 +122,81 @@ header
     color: #fff;
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    padding: 5px 20px;
     font-family: "Nunito", sans-serif;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+}
+/* 右端で切れないように h1 を縮退可能にし、ボタンは固定幅 */
+#header { gap: 30px; }
+
+/* #header h1 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+
+/* -------------------------------
+レスポンシブ切り替え
+---------------------------------*/
+.hidden { display: none; }
+
+/* モバイル: ハンバーガー + ポップアップ */
+@media (max-width: 699px) {
+  /* メニュー本体（UL） */
+  #popupMenu {
+    position: fixed;           /* JSでボタン直下に座標指定 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #757d85;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    z-index: 1000;
+    min-width: 150px;
+
+    /* 非表示中でもレイアウトは影響させない */
+  }
+
+  /* 出現アニメーション（表示直後のみ） */
+  #popupMenu.showing {
+    animation: popIn 0.22s ease forwards;
+    transform-origin: top right; /* 右上＝ハンバーガー付近から出る印象 */
+  }
+
+  #popupMenu li { margin: 0; }
+  #popupMenu a { color: #fff; text-decoration: none; }
+  #popupMenu a:hover { opacity: .9; }
+}
+
+/* アニメーション定義（共通） */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(6px, -6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* PC: 横並びナビバー */
+@media (min-width: 700px) {
+  .hamburger { display: none; }
+  #popupMenu {
+    display: flex !important;
+    position: static;
+    background: none;
+    border: none;
+  }
 }
 
 /* -------------------------------

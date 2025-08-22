@@ -12,18 +12,25 @@
 <body>
     <header id="header">
         <h1>Kanade Takimoto</h1>
+        <button id="menuButton" class="hamburger" aria-haspopup="true" aria-expanded="false" aria-controls="popupMenu">
+            <span class="sr-only">メニューを開く</span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
         <nav>
-            <ul>
+            <ul id="popupMenu" class="hidden">
                 <li><a href="./index.html">home</a></li>
-                <li><a href="./work.html">output</a></li>
+                <li><a href="./work.html">portfolio</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div id="Deliverables" class="wrapper">
-            <h1>output</h1>
+            <h1>portfolio</h1>
             <h2>料理教室の予約管理WEBアプリ</h2>
-            <p>この作品は、料理教室の予約管理WEBアプリです。<br>お客様の画面ではオンラインで簡単にイベントを予約できます。日時・料金・定員・メニューについてなどを確認します。<br>管理者はイベントや予約者情報の管理、予約状況の確認が可能。イベントを登録、修正の際も管理者が動作しやすいよう、デザイン面にもこだわりました。</p>
+            <p>この作品は、料理教室の予約管理WEBアプリです。<br>お客様の画面ではオンラインで簡単にイベントを予約できます。
+                <br>管理者はイベントの登録、修正、削除ができ、予約者情報を一元管理できます。</p>
             <br>
             <ul>
                 <li><span id="stack">プラットフォーム</span>Web</li>
@@ -47,5 +54,6 @@
             <img src="img/4w.png" alt="">
         </div>
     </main>
+    <script src="js/script.js"></script>
 </body>
 </html>
